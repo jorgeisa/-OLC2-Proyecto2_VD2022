@@ -1,0 +1,206 @@
+{% extends 'base.html' %} {% block contend1 %} {% endblock %} {% block content %}
+
+<div class="row">
+  <div class="col-md-4">
+    <center><h4>Algoritmos Clasificacion</h4></center>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <center><h4>Cargar Archivo</h4></center>
+  </div>
+  <div class="col-md-8">
+    <center>
+      <h4>Tabla De Datos</h4>
+      <h5>Total de Datos: {{count}}</h5>
+    </center>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom: 15px">
+  <div class="col-md-4">
+    <center>
+      <form action="/archivoArbol" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="row-md-12">
+            <input
+              type="file"
+              name="archivo"
+              class="btn-style-archivo"
+              accept=".csv"
+            />
+          </div>
+          <div class="row-md-12">
+            <button type="submit" class="btn-style-archivo">Cargar</button>
+          </div>
+        </div>
+      </form>
+    </center>
+  </div>
+  <div class="col-md-8">
+    <center>
+      <div class="div-scroll-table" id="divGreen">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              {% for header in arbolHeader %}
+              <th scope="col">{{ header }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in arbolTable %}
+            <tr class="table table-striped table-active">
+              {% for cell in row %}
+              <td>{{cell}}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </center>
+  </div>
+</div>
+{% endblock %} {% block content2 %}
+
+<div class="row">
+  <div class="col-md-4">
+    <center><h4>Algoritmo Arbol</h4></center>
+  </div>
+  <div class="col-md-8">
+    <center><h4>Gráfica</h4></center>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div id="divGreen" style="margin-left: 10px;">
+      <form action="/graficaArbol" method="POST" enctype="multipart/form-data" style="margin-left: 10px; margin-right: 10px">
+        <label>Columnas de Decision</label>
+        <center>
+          <input
+            type="text"
+            class="form-control"
+            id="inputOpciones"
+            name="inputOpciones"
+            placeholder="Columna de Opciones"
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="inputClasificaciones"
+            name="inputClasificaciones"
+            placeholder="Columna Clasificaciones"
+          />
+        </center>
+
+        <center>
+          <div style="margin-top: 20px">
+            <button type="submit" class="btn-style-archivo">Graficar</button>
+          </div>
+        </center>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <center>
+      <div>
+        {% if arbolGrafica == "" %}
+        <img
+          src="./static/images/error_meme.png"
+          alt="Imagen de Regresion Lineal !"
+          width="600px"
+          height="500px"
+        />
+        {% else %}
+        <img
+          src="./static/images/arbol.png"
+          alt="Imagen de Regresion Lineal !"
+          width="600px"
+          height="500px"
+        />
+        {% endif %}
+      </div>
+    </center>
+  </div>
+</div>
+
+{% endblock %} {% block content3 %}
+
+<div class="row">
+  <div class="col-md-4">
+    <center><h4>Algoritmo Gauss</h4></center>
+  </div>
+  <div class="col-md-8">
+    <center><h4>Prediccion (Información)</h4></center>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div id="divGreen" style="margin-left: 10px;">
+      <form action="/graficaGauss" method="POST" enctype="multipart/form-data" style="margin-left: 10px; margin-right: 10px">
+        <label>Columnas de Decision</label>
+        <center>
+          <input
+            type="text"
+            class="form-control"
+            id="inputOpciones1"
+            name="inputOpciones1"
+            placeholder="Columna de Opciones 1"
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="inputOpciones2"
+            name="inputOpciones2"
+            placeholder="Columna de Opciones 2"
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="inputClasificaciones"
+            name="inputClasificaciones"
+            placeholder="Columna Clasificaciones"
+          />
+        </center>
+
+        <center>
+          <div style="margin-top: 20px">
+            <button type="submit" class="btn-style-archivo">Predecir Clasificación</button>
+          </div>
+        </center>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <center>
+      <div>
+        {% if arbolPrediccion == "Informacion" %}
+        <center>
+          <h5>No hay informacion aun!</h5>
+        </center>
+        {% else %}
+        <center>
+          <div>
+            <textarea
+              id="consola"
+              cols="75"
+              rows="12"
+              wrap="off"
+              spellcheck="false"
+              readonly
+            >
+            {{arbolPrediccion}}
+            </textarea>
+          </div>
+        </center>
+        {% endif %}
+      </div>
+    </center>
+  </div>
+</div>
+
+{% endblock %}

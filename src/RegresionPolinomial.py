@@ -37,11 +37,6 @@ def polinomial_func(x_name, y_name, titulo, datos, degree, prediccionX):
     # plot.xlim(x_new_min, x_new_max)
     # plot.ylim(0,1000)
 
-
-    
-
-    
-
     prediccionFinal = "-"
     # Realizando la produccion en X
     if prediccionX != "":
