@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block contend1 %}
+<style>
+  textarea {
+    resize: none;
+  }
+</style>
+{{ codemirror.include_codemirror() }} {% endblock %} {% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <center><h3 class="text-primary">Ejes</h3></center>
+  </div>
+  <div class="col-md-6">
+    <center><h3 class="text-primary">Operaciones</h3></center>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom: 15px">
+  <div class="col-md-6">
+    <center>
+      <form action="/SubirArchivo" method="POST" enctype="multipart/form-data">
+        <input type="file" name="archivo" class="btn-style1" />
+        <input type="submit" class="btn-style1" />
+      </form>
+    </center>
+  </div>
+  <div class="col-md-6">
+    <br /><br />
+    <div class="jumbotron">
+      <img
+        src="./static/images/lineal.png"
+        alt="Imagen de Regresion Lineal !"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %} {% block content2 %}
+
+<center><h1 class="text-primary">Contenido 2</h1></center>
+
+
+{% endblock %} {% block content3 %}
+
+<center><h1 class="text-primary">Contenido 3</h1></center>
+
+{% endblock %}

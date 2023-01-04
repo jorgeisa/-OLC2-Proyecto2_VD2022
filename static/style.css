@@ -1,0 +1,63 @@
+#consola{
+  border: 1px solid green;
+  background-color: rgba(2, 11, 29, 0.356); 
+  box-shadow: 0 0 5px #719ECE;
+  padding: 1em; 
+  outline: none; 
+  color: white;
+}
+
+#tarjeta{
+  width: 17rem;
+  border: 1px solid rgb(5, 141, 185);
+  box-shadow: 0 0 6px #719ece;
+  outline: none;
+  margin-left: 12px;
+}
+
+#zoomImage{
+  transition: 0.5s;
+}
+
+#zoomImage:hover{
+  transform: scale(1.1);
+
+}
+
+#divGreen{
+  border: 1px solid green;
+  background-color: rgba(2, 11, 29, 0.356);
+  box-shadow: 0 0 5px #719ece;
+  outline: none;
+}
+
+.btn-style-archivo{
+  width: 80%;
+  background: rgb(0,0,0);
+  border: 1px solid rgb(60, 255, 202);
+  padding: 12px;
+  color: white;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman';
+  font-size: 18px;
+  box-shadow: 2px 5px 8px rgb(53, 232, 0);
+}
+
+.div-scroll-table{
+  overflow: scroll; 
+  height: 200px; 
+  width: 850px;
+}
+
+.btn-style1{
+  width: 30%;
+  background: rgb(0,0,0);
+  border: 1px solid rgb(60, 255, 202);
+  padding: 12px;
+  color: white;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman';
+  font-size: 18px;
+  box-shadow: 2px 5px 8px rgb(53, 232, 0);
+}
