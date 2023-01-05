@@ -19,7 +19,7 @@ app.config.from_object(__name__)
 
 @app.route('/')
 def Home():
-    return render_template('Home.html')
+    return render_template('index.html')
 
 @app.route('/RegresionLinealPoli')
 def CargarArchivo():
@@ -226,6 +226,7 @@ def graficaGauss():
             
             # Gauss
             datos = gaussDecision_func(str(x_name1), str(x_name2), str(y_name), dataArbol)
+            
             arbolPrediccion = str(datos['prediccion'])    
         except:
             print("Error")
@@ -234,4 +235,4 @@ def graficaGauss():
     return render_template('ArbolGaussClasificacion.html', arbolHeader=arbolHeader, arbolTable=arbolTable, count=arbolFilas, arbolGrafica=arbolGrafica, arbolPrediccion=arbolPrediccion)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
